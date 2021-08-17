@@ -21,6 +21,7 @@ function addPost(req, res){
           message: "Post Creado Correctamente"
         });
       }
+      x
     }
   });
 }
@@ -30,7 +31,7 @@ function getPosts(req, res){
     page,
     limit: parseInt(limit),
     sort: { date: "desc" }
-  }
+  };  
   Post.paginate({}, options, (err, postsStored) => {
     if(err){
       res.status(500).send({
@@ -42,7 +43,7 @@ function getPosts(req, res){
         res.status(404).send({
           code: 404,
           message: "NO se Encontro ningun Post"
-        })
+        })      
       }else{
         res.status(200).send({
           code: 200,
@@ -98,14 +99,12 @@ function deletePost(req, res){
         })
       }
     }
-  }) 
-
-  
-}; 
+  })
+};
 function getPost(req, res){
-  const { id } = req.params;
+  const { url } = req.params;
 
-  Post.findById(id, (err, postStored) => {
+  Post.findOne({url}, (err, postStored) => {
     if(err){
       res.status(500).send({
         code: 500,
@@ -132,4 +131,4 @@ module.exports = {
   updatePost,
   deletePost,
   getPost
-}
+};

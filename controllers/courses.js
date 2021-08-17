@@ -2,13 +2,14 @@ const Course = require("../models/courses");
 
 function addCourse(req, res){
   const body = req.body;
+  
   const course = new Course(body);
-  course.order= 1000;
-
+  course.order = 2000;
+  console.log(course);
   course.save((err, courseStored)=> {
     if(err){
       res.status(500).send({
-        message: "Error del Servidor",
+        message: "El Curso ya ha sido agregado anteriormente  ",
         code: 500
       })
     }else{
@@ -36,7 +37,7 @@ function getCourses(req, res){
     }else{
       if(!courseStored){
         res.status(404).send({
-          message: "No se encontarron Cursos",
+          message: "No se encontraron Cursos",
           code: 404
         })
       }else{
