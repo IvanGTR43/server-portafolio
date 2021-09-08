@@ -6,7 +6,8 @@ const portDB = 27017;
 const{IP_SERVER, PORT_DB, API_VERSION} = require("./config");
 mongoose.set("useFindAndModify", false);
 // mongodb+srv://ivangtr43:<password>@webpersonalivan.eeotf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-mongoose.connect(`mongodb://${IP_SERVER}:${PORT_DB}/ivangtr`,{useNewUrlParser: true, useUnifiedTopology: true}, (err, res)=> {
+//mongodb://${IP_SERVER}:${PORT_DB}/ivangtr
+mongoose.connect(`mongodb+srv://ivangtr43:amKJqW8CIyOVzW6G@webpersonalivan.eeotf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,{useNewUrlParser: true, useUnifiedTopology: true}, (err, res)=> {
     if(err){
         throw err
     }else{

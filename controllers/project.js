@@ -12,7 +12,7 @@ function addProject(req, res){
     }else{
       if(!projectStored){
         res.status(404).send({
-          messa: "Error al Agregar el Proyecto",
+          message: "Error al Agregar el Proyecto",
           code: 404
         });
       }else{
